@@ -6,7 +6,7 @@ function Projects() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://my-app-g7fz.onrender.com') 
+    fetch('https://my-app-g7fz.onrender.com/api/projects') // Use the correct endpoint
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -33,15 +33,15 @@ function Projects() {
         {projects.map((project, index) => (
           <div className="col-md-6 mb-4" key={index}>
             <div className="card h-100">
-            <div className="card-body">
+              <div className="card-body">
                 <h5 className="card-title">{project.title}</h5>
-                <p className="card-text"><strong>Author:</strong> {project.author}</p> 
+                <p className="card-text"><strong>Author:</strong> {project.author}</p>
                 <p className="card-text">{project.description}</p>
                 <p><strong>Technologies:</strong> {project.languages.join(", ")}</p>
                 <button className="btn btn-primary" disabled>
-                    View Details (Coming Soon)
-                    </button>
-                    </div>
+                  View Details (Coming Soon)
+                </button>
+              </div>
             </div>
           </div>
         ))}
