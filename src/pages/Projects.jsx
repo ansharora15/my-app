@@ -6,18 +6,21 @@ function Projects() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://my-app-g7fz.onrender.com/api/projects') // Use the correct endpoint
+    fetch('https://my-app-g7fz.onrender.com/api/projects')
       .then(response => {
+        console.log('Response status:', response.status); // Debugging
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(`Network response was not ok: ${response.statusText}`);
         }
-        return response.json();
+        return response.json(); // Parse the response as JSON
       })
       .then(data => {
+        console.log('Data received:', data); // Debugging
         setProjects(data);
         setLoading(false);
       })
       .catch(error => {
+        console.error('Fetch error:', error); // Debugging
         setError(error.message);
         setLoading(false);
       });
