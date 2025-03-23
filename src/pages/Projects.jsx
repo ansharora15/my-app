@@ -6,7 +6,7 @@ function Projects() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/projects') // Replace with your backend URL
+    fetch('https://my-app-g7fz.onrender.com') 
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
